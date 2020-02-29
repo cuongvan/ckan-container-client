@@ -12,10 +12,10 @@ def get_app_params():
     # TODO: raise exception & handle?
     ret = {
         'ckan_host': ckan_host,
-        'json_input': requests.get(json_input_url).json(),
+        'json': requests.get(json_input_url).json(),
     }
 
     if binary_input_url:
-        ret['binary_input'] = requests.get(binary_input_url).content
+        ret['file'] = requests.get(binary_input_url).content
 
     return ret

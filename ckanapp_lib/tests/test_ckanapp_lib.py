@@ -28,7 +28,7 @@ def test_response_keys_json_only():
         params = get_app_params()
 
     params.should.have.key('ckan_host')
-    params.should.have.key('json_input')
+    params.should.have.key('json')
 
 @patch.dict(os.environ, JSON_AND_BIN)
 def test_response_keys_json_and_binary():
@@ -38,8 +38,8 @@ def test_response_keys_json_and_binary():
         params = get_app_params()
 
     params.should.have.key('ckan_host')
-    params.should.have.key('json_input')
-    params.should.have.key('binary_input')
+    params.should.have.key('json')
+    params.should.have.key('file')
 
 @patch.dict(os.environ, JSON_ONLY)
 def test_json_response():
@@ -49,7 +49,7 @@ def test_json_response():
         m.get(json_url, json=json_params)
         params = get_app_params()
 
-    params['json_input'].should.equal(json_params)
+    params['json'].should.equal(json_params)
 
 @patch.dict(os.environ, JSON_AND_BIN)
 def test_binary_response():
@@ -60,5 +60,5 @@ def test_binary_response():
 
         params = get_app_params()
 
-    params['binary_input'].should.equal(b'binary input')
+    params['file'].should.equal(b'binary input')
 
