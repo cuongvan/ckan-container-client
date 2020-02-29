@@ -1,0 +1,1 @@
+nosetests --verbosity=2

@@ -1,0 +1,3 @@
+nose
+sure
+requests_mock
